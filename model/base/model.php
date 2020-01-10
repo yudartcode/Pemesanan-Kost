@@ -1,8 +1,11 @@
 <?php
-require('connection.php');
+require_once('connection.php');
 
 class Model extends Connection{
     public $table = '';
+    public $atribute = [];
+    public $field;
+    public $fid;
 
     public function all()
     {
@@ -28,9 +31,37 @@ class Model extends Connection{
         return mysqli_query(parent::Connection(), $query);
     }
 
-    public function save($option = [], $val = [])
+    public function save()
     {
-        $query = "INSERT INTO $this->table SET $option = $val";
+        $val = 'NULL';
+        foreach ($this->atribute as $atr) {
+            $val .= ','. $atr;
+        }
+        $query = "INSERT INTO $this->table VALUES ($val)";
+        $go = mysqli_query(parent::Connection(), $query);
+
+        if ($go) {
+            return $go;
+        } else {
+            return "Gagal insert";
+        }
+    }
+
+    public function update($id)
+    {
+        $query = "UPDATE $this->table SET $this->field WHERE $this->fid = $id";
+        return mysqli_query(parent::Connection(), $query);
+    }
+
+    public function delete($id)
+    {
+        $query = "DELETE FROM $this->table WHERE $this->fid = $id";
+        return mysqli_query(parent::Connection(), $query);
+    }
+
+    public function login($user, $pass)
+    {
+        $query = "SELECT * FROM $this->table WHERE username='$user' AND password='$pass'";
         return mysqli_query(parent::Connection(), $query);
     }
 }
