@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (!$_SESSION['login']) {
-    header('Location:../loginPemilik.php');
+    header('Location:../login.php');
 }
 include 'layout/header.php';
 include 'layout/navbar.php';

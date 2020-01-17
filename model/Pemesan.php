@@ -18,7 +18,7 @@ class Pemesan extends Model {
             "'$this->no_telpon'",
             "'$this->jk'",
             "'$this->username'",
-            "'$this->password'",
+            "'$this->password'"
         ];
         return parent::save();
     }

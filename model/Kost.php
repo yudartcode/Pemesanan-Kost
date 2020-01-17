@@ -20,7 +20,7 @@ class Kost extends Model {
     public function update($id)
     {
         $this->fid = 'id';
-        $this->field = "nama='$this->nama',alamat='$this->alamat',harga=$this->harga,jumlah=$this->jumlah,tipe='$this->tipe',fasilitas='$this->fasilitas',id_pemilik='$this->id_pemilik',";
+        $this->field = "nama='$this->nama',alamat='$this->alamat',harga=$this->harga,jumlah=$this->jumlah,tipe='$this->tipe',fasilitas='$this->fasilitas',id_pemilik='$this->id_pemilik'";
         return parent::update($id);
     }
 

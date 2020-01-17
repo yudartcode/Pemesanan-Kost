@@ -1,6 +1,6 @@
 <footer>
     <hr>
-    <h6 class="text-center">&copy 2020 | Yuda Karnaen</h6>
+    <h6 class="text-center">&copy 2020 | Yuda Karnaen and Team</h6>
     <hr>
 </footer>
 <script src="/Pemesanan-Kost/public/js/jquery.min.js"></script>

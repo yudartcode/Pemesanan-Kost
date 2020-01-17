@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="/Pemesanan-Kost/view/kostSaya">Kost Saya</a>
-                <a class="nav-item nav-link" href="/Pemesanan-Kost/view/pemesan">Daftar Transaksi</a>
+                <a class="nav-item nav-link" href="/Pemesanan-Kost/view/transaksi/transaksi.php">Daftar Transaksi</a>
             </div>
 
             <div class="dropdown ml-auto">

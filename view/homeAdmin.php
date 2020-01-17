@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION['login']) {
-    header('Location:../loginAdmin.php');
+    header('Location:../login.php');
 }
 
 include 'layout/header.php';

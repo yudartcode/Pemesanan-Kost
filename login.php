@@ -42,10 +42,11 @@ $pass = $_POST['password'];
 
 if (isset($_POST['login'])) {
     session_start();
-    
+
     if ($user == "admin" && $pass == "admin") {
         $_SESSION['login'] = TRUE;
         $fnama = $user;
+        $_SESSION['role'] = 'admin';
         header('Location:view/homeAdmin.php');
     } else {
         $pass = md5($_POST['password']);
@@ -56,14 +57,28 @@ if (isset($_POST['login'])) {
             $fnama = $cek['nama'];
             $_SESSION['login'] = TRUE;
             $_SESSION['id'] = $fid;
-            $_SESSION['nama'] = $fnama;
+            $_SESSION['nama'] = $fnama;            
+            $_SESSION['role'] = 'pemilik';
             header('Location:view/homePemilik.php');
         } else {
-            ?>
-            <script>
-                alert('Login Gagal, Username atau Password yg anda masukkan salah')
-            </script>
-            <?php
+            $pass = md5($_POST['password']);
+            $cek = $conn->query("SELECT * FROM tb_pemesan WHERE username='$user' AND password='$pass'");
+            if ($cek->num_rows == 1) {
+                $cek = mysqli_fetch_assoc($cek);
+                $fid = $cek['id'];
+                $fnama = $cek['nama'];
+                $_SESSION['login'] = TRUE;
+                $_SESSION['id'] = $fid;
+                $_SESSION['nama'] = $fnama;
+                $_SESSION['role'] = 'pemesan';
+                header('Location:index.php');
+            } else {
+                ?>
+                    <script>
+                        alert('Login Gagal, Username atau Password yg anda masukkan salah')
+                    </script>
+                <?php
+            }
         }
     }
 }

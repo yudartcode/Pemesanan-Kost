@@ -47,6 +47,18 @@ class Model extends Connection{
         }
     }
 
+    public function saveTransaksi()
+    {        
+        $query = "INSERT INTO $this->table SET $this->field";
+        $go = mysqli_query(parent::Connection(), $query);
+
+        if ($go) {
+            return $go;
+        } else {
+            return "Gagal insert";
+        }
+    }
+
     public function update($id)
     {
         $query = "UPDATE $this->table SET $this->field WHERE $this->fid = $id";
